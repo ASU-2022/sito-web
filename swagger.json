@@ -1,0 +1,212 @@
+{
+    "swagger":"2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "My user project CRUD",
+        "description" : "My user Project application API",
+        "license":{
+            "name":"MIT",
+            "url":"https://opensource.org/licenses/MIT"
+        }
+    },
+    "host":"localhost:8080",
+    "basePath":"/",
+    "tags": [
+        {
+            "name":"Users",
+            "description":"API for users in the system"
+        }
+    ],
+    "schemes":["http"],
+    "consumes":["application/json"],
+    "produces":["application/json"],
+    "definitions":{
+        "AulaStudio":{
+            "required":[
+                "nome",
+                "locazione",
+                "posti_disponibili",
+                "QR_code"
+            ],
+            "properties":{
+                "nome":{
+                    "type": "string"
+                },
+                "locazione":{
+                    "type":"string"
+                },
+                "posti_disponibili":{
+                    "type": "integer"
+                },
+                "QR_code":{
+                    "type": "string"
+                }
+            }
+        },
+        "Prenotazione":{
+            "required":[
+                "studenteId",
+                "aulaStudioId",
+                "data"
+            ],
+            "properties":{
+                "studenteId":{
+                    "type":"string"
+                },
+                "aulaStudioId":{
+                    "type":"string"
+                },
+                "data":{
+                    "type":"string"
+                }
+            }
+        }
+    },
+    "paths":{
+        "/auleStudios":{
+            "get":{
+                "tags":[
+                    "AulaStudio"
+                ],
+                "summary":"Prendi tutte le aule studio",
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/AulaStudio"
+                        }
+                    }
+                }
+            },
+            "post":{
+                "tags":[
+                    "AulaStudio"
+                ],
+                "parameters":[{
+                    "in": "body",
+                    "name": "studente",
+                    "description":"Crea l'aula studio",
+                    "schema": {
+                        "type":"object",
+                        "required":["nome,locazione,posti_disponibili,QR_code"],
+                        "properties":{
+                            "nome":{
+                                "type":"string"
+                            },
+                            "locazione":{
+                                "type":"string"
+                            },
+                            "posti_disponibili":{
+                                "type":"integer"
+                            },
+                            "QR_code":{
+                                "type":"string"
+                            }
+                        }
+                    }
+                }],
+                "summary":"Esegui la post di un'aula studio",
+                "responses":{
+                    "201":{
+                        "description":"Aula studio salvata",
+                        "schema":{
+                            "$ref":"#/definitions/AulaStudio"
+                        }
+                    }
+                }
+            }   
+        },
+        "/auleStudios/{aulaStudioId}":{
+            "delete" :{
+                "tags":["AulaStudio"],
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"aulaStudioId",
+                        "description":"Cancella l'aula studio con lo specifico ID",
+                        "schema":{
+                            "type":"string",
+                            "required":true
+                        }
+                    }
+                ],
+                "summary":"Cancella l'aula studio con lo specifico ID",
+                "responses":{
+                    "204":{
+                        "description":"Aula studio eliminata nel database",
+                        "schema":{ "$ref": "#/definitions/AulaStudio" }
+                    }
+                }
+            }
+        },
+        "/prenotazione/{prenotazioneId}":{
+            "delete":{
+                "tags":["Prenotazione"],
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"prenotazioneId",
+                        "description":"Cancella la prenotazione con lo specifico ID",
+                        "schema":{
+                            "type":"string",
+                            "required":true
+                        }
+                    }
+                ],
+                "summary":"Cancella la prenotazione con lo specifico ID",
+                "responses":{
+                    "204":{
+                        "description":"Prenotazione eliminata nel database",
+                        "schema":{ "$ref": "#/definitions/Prenotazione" }
+                    }
+                }
+            }
+        },
+        "/prenotazione":{
+            "post":{
+                "tags":[
+                    "Prenotazione"
+                ],
+                "parameters":[{
+                    "in": "body",
+                    "name": "prenotazione",
+                    "description":"Crea la prenotazione",
+                    "schema": {
+                        "type":"object",
+                        "required":["studenteId,aulaStudioId,data"],
+                        "properties":{
+                            "studenteId":{
+                                "type":"string"
+                            },
+                            "aulaStudioId":{
+                                "type":"string"
+                            },
+                            "data":{
+                                "type":"string"
+                            }           
+                        }
+                    }
+                }],
+                "summary":"Esegui la post di una prenotazione",
+                "responses":{
+                    "201":{
+                        "description":"Prenotazione salvata",
+                        "schema":{
+                            "$ref":"#/definitions/Prenotazione"
+                        }
+                    }
+                }
+            },
+            "get" :{
+                "tags":["Prenotazione"],
+                "summary":"Prendi tutte le prenotazioni che sono state create",
+                "responses":{
+                    "200":{
+                        "description":"Prenotazione trovate nel database",
+                        "schema":{ "$ref": "#/definitions/Prenotazione" }
+                    }
+                }
+            }
+        }
+    }
+}
