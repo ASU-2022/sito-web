@@ -16,6 +16,12 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 npm install
 ```
 
+### Run the server first
+```sh
+cd ../server
+node server.js
+```
+
 ### Compile and Hot-Reload for Development
 
 ```sh
@@ -28,7 +34,7 @@ npm run dev
 npm run build
 ```
 ### Per loggarsi all'interno del sito come studente questi sono i dati per gli utenti:
-
+```sh
 1)
 email : "mattia.rizzoli@studenti.unitn.it"
 password : "matrizz"
@@ -44,8 +50,9 @@ password : "pizza23"
 4)
 email : "antonio.bucchiarone@studenti.unitn.it"
 password : "ciaociao"
-
+```
 ### Per loggarsi come amministratore invece:
-
+```sh
 email : "amm@gmail.com"
 password : "1234"
+```
