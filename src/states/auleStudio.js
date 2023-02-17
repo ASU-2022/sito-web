@@ -2,7 +2,6 @@ import { reactive } from 'vue'
 
 const HOST = import.meta.env.VITE_API_HOST || `http://localhost:8080`
 const AULESTUDIO_URL = HOST+'/aulestudios'
-//const REVIEW_URL = HOST +'/reviews'
 
 
 

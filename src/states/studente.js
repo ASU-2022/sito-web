@@ -6,7 +6,6 @@ console.log(loggedUser.id)
 const HOST = import.meta.env.VITE_API_HOST || `http://localhost:8080`
 const PROFILE_URL = HOST+'/studentis/'
 console.log(PROFILE_URL)
-//const REVIEW_URL = HOST +'/reviews'
 
 
 

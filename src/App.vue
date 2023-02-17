@@ -16,7 +16,6 @@ import{ref , onMounted} from 'vue'
           <RouterLink to="/auleStudios">Aule Studio</RouterLink>
           <RouterLink to="/prenotazione">Prenotazione</RouterLink>
           <span v-if="loggedUser.token"><RouterLink to="/profile">Profilo</RouterLink></span>
-          <!--<RouterLink to="/reviews">Review</RouterLink>.-->
         </nav>
       </div>
       <div class="login">

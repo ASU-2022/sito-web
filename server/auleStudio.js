@@ -34,7 +34,6 @@ router.post('', async (req, res) => {
     
 	auleStudio = await auleStudio.save();
     let auleStudioId = auleStudio.id;
-    console.log('aula Studio saved successfully');
     res.location("auleStudios/" + auleStudioId).status(201).send();
 });
 
@@ -42,11 +41,9 @@ router.delete('/:id', async (req, res) => {
     let aulaStudio = await AulaStudio.findById(req.params.id).exec();
     if (!aulaStudio) {
         res.status(404).send()
-        console.log('AulaStudio non trovata')
         return;
     }
     await aulaStudio.deleteOne()
-    console.log('AulaStudio rimossa')
     res.status(204).send()
 });
 
@@ -54,7 +51,6 @@ router.put('/:id', async (req,res)=> {
     let aulaStudio = await AulaStudio.findById(req.params.id).exec();
     if (!aulaStudio) {
         res.status(404).send()
-        console.log('AulaStudio non trovata')
         return;
     }else{
         let modifica=await AulaStudio.findByIdAndUpdate(req.params.id,{$set:{posti_disponibili:req.body.newPosti}},{new:true,runValidators:true})

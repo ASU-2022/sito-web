@@ -2,8 +2,6 @@ const request = require('supertest');
 const app=require('./server');
 
 describe('GET auleStudios', () => {
-
-  // Moking User.findOne method
   
   let aulaStudioSpy;
   

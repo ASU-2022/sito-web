@@ -25,7 +25,6 @@ async function fetchData() {
     return;
   }
   const url =HOST+'/prenotazione/' + loggedUser.id
-  //console.log(url);
   prenotazioni.value = await (await fetch(url)).json()
 }
 

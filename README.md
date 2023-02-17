@@ -27,3 +27,25 @@ npm run dev
 ```sh
 npm run build
 ```
+### Per loggarsi all'interno del sito come studente questi sono i dati per gli utenti:
+
+1)
+email : "mattia.rizzoli@studenti.unitn.it"
+password : "matrizz"
+
+2)
+email : "andreus.perroncino@studenti.unitn.it"
+password : "perri22"
+
+3)
+email : "mario.ciro@studenti.unitn.it"
+password : "pizza23"
+
+4)
+email : "antonio.bucchiarone@studenti.unitn.it"
+password : "ciaociao"
+
+### Per loggarsi come amministratore invece:
+
+email : "amm@gmail.com"
+password : "1234"

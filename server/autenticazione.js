@@ -13,11 +13,9 @@ router.post('', async function(req, res) {
 	// user not found
 	if (!studente) {
 		res.json({ success: false, message: 'studente non trovato' });
-		console.log("studente non trovato");
 	}
 	else if (studente.password != req.body.password) {
 		res.json({ success: false, message: 'Password Sbagliata'});
-		console.log("passoword sbagliata");
 	}
 	else{
 		var payload = {

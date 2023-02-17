@@ -10,14 +10,8 @@ const HOST = import.meta.env.VITE_API_HOST || `http://localhost:8080`;
 
 const email = ref('');
 const password = ref('');
-const cookie = ref('');
 
 const emit = defineEmits(["login"]);
-
-/*onMounted( () => {
-  loggedUser.cookie = $cookies.isKey("email");
-  loggedUser.email = $cookies.get("email");
-})*/
 
 function login() {
   fetch(HOST+"/autenticazione", {

@@ -28,8 +28,6 @@ router.get('/:id', async (req, res) => {
         };
     });
     res.status(200).json(prenotazioni);
-
-    //aesfa
 });
 
 
@@ -37,11 +35,9 @@ router.delete('/:id', async (req, res) => {
     let prenotazione = await Prenotazione.findById(req.params.id).exec();
     if (!prenotazione) {
         res.status(404).send()
-        console.log('Prenotazione non trovata')
         return;
     }
     await prenotazione.deleteOne()
-    console.log('Prenotazione rimossa')
     res.status(204).send()
 });
 
@@ -73,10 +69,8 @@ router.get('/:idAulaStudio/:data/:idStudente', async (req, res) => {
     });
     prova3=Object.keys(prenotazioni).length
     if(prova3 == 0){
-        console.log(prenotazioni)
         risultato=false;
     }else{
-        console.log(prenotazioni)
         risultato=true;
     }
     res.status(200).send({valore:risultato}); 

@@ -6,14 +6,10 @@ const PRENOTAZIONI_URL = HOST+ '/prenotazioni'
 
 
 const prenotazioni = reactive([])
-const prenotazioni2 = reactive([])
 
 async function fetchPrenotazioni() {
     prenotazioni.value = await (await fetch(PRENOTAZIONI_URL)).json()
 }
 
-async function fetchPrenotazioni2(LINK) {
-    prenotazioni2.value =  await(await fetch(LINK)).json()
-}
 
-export { prenotazioni, prenotazioni2, fetchPrenotazioni, fetchPrenotazioni2} 
+export { prenotazioni, fetchPrenotazioni} 
