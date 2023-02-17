@@ -18,7 +18,7 @@ npm install
 
 ### Run the server first
 ```sh
-cd ../server
+cd server
 node server.js
 ```
 
